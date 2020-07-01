@@ -29,5 +29,8 @@
   "homepage": "https://github.com/rezaerami/react-payload-validation#readme",
   "dependencies": {
     "@hapi/joi": "^17.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.3.1"
   }
 }

@@ -4,7 +4,7 @@
   "description": "validates the payload of the dispatched action",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup --config ./internals/rollup.config.js",
     "lint:staged": "lint-staged"
   },
   "repository": {

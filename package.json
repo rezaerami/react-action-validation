@@ -4,7 +4,8 @@
   "description": "validates the payload of the dispatched action",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:staged": "lint-staged"
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,25 @@
     "@hapi/joi": "^17.1.1"
   },
   "devDependencies": {
-    "eslint": "^7.3.1"
-  }
+    "babel-eslint": "^10.0.3",
+    "babel-jest": "^24.9.0",
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "jest": "^24.9.0",
+    "lint-staged": "^10.2.11",
+    "pre-commit": "^1.2.2",
+    "prettier": "^1.19.1"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add --force"
+    ],
+    "*.json": [
+      "prettier --write",
+      "git add --force"
+    ]
+  },
+  "pre-commit": "lint:staged"
 }

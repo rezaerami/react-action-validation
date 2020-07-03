@@ -90,20 +90,52 @@ var assign = (function (types) {
 var validationGate = (function (validations) {
   return function () {
     return function (next) {
-      return function (action) {
-        if (!validations[action.type]) {
-          next(action);
-        } else {
-          var validation = new validations[action.type]();
-          validation.validate(action.payload).then(function () {
-            validation.accept(action.type);
-            next(action);
-          })["catch"](function (e) {
-            console.error(e);
-            validation.reject(action.type);
-          });
-        }
-      };
+      return /*#__PURE__*/function () {
+        var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(action) {
+          var validation;
+          return regeneratorRuntime.wrap(function _callee$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  if (validations[action.type]) {
+                    _context.next = 4;
+                    break;
+                  }
+
+                  next(action);
+                  _context.next = 16;
+                  break;
+
+                case 4:
+                  validation = new validations[action.type]();
+                  _context.prev = 5;
+                  _context.next = 8;
+                  return validation.validate(action.payload);
+
+                case 8:
+                  validation.accept(action.type);
+                  next(action);
+                  _context.next = 16;
+                  break;
+
+                case 12:
+                  _context.prev = 12;
+                  _context.t0 = _context["catch"](5);
+                  console.error(_context.t0);
+                  validation.reject(action.type);
+
+                case 16:
+                case "end":
+                  return _context.stop();
+              }
+            }
+          }, _callee, null, [[5, 12]]);
+        }));
+
+        return function (_x) {
+          return _ref.apply(this, arguments);
+        };
+      }();
     };
   };
 });
@@ -140,7 +172,7 @@ var Validator = /*#__PURE__*/function () {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return Joi.object(this.getRules()).validate(payload);
+                return Joi.object(this.getRules()).validateAsync(payload);
 
               case 2:
               case "end":

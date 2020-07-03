@@ -1,3 +1,5 @@
+import Joi from '@hapi/joi';
+
 export default class Validator {
   rules = {};
 
@@ -16,7 +18,7 @@ export default class Validator {
   }
 
   async validate(payload) {
-    await this.rules.validateAsync(payload);
+    await Joi.object(this.getRules()).validate(payload);
   }
 
   accept(type) {

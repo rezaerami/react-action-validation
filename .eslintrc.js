@@ -4,9 +4,9 @@ const prettierOptions = JSON.parse(fs.readFileSync('./.prettierrc', 'utf8'));
 
 module.exports = {
   'parser': 'babel-eslint',
-  'extends': ['prettier'],
-  'ignorePatterns': ['*.test.js','*.spec.js', '**/dist/*',  '**/node_modules/*'],
-  'plugins': ['prettier'],
+  'extends': ['prettier', 'plugin:import/errors'],
+  'ignorePatterns': ['*.test.js', '*.spec.js', '*.config.js', '**/dist/*',  '**/node_modules/*'],
+  'plugins': ['prettier', 'import'],
   'rules': {
     'prettier/prettier': ['error', prettierOptions],
     'class-methods-use-this': 0,

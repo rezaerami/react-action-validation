@@ -1,8 +1,8 @@
 {
   "name": "react-action-validation",
-  "version": "0.0.1-alpha",
+  "version": "0.0.2-alpha",
   "description": "validates the payload of the dispatched action",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
     "build": "rollup --config ./rollup.config.js",
     "lint:staged": "lint-staged"

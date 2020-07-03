@@ -1,6 +1,6 @@
 import * as Validation from '../src';
 
-describe("export module tests", () => {
+describe("index tests", () => {
   it("should export the assign from the validation", () => {
     expect(Validation).toHaveProperty("assign");
   });

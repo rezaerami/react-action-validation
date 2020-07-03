@@ -9,6 +9,19 @@ class CustomValidator extends Validator {
 const validations = assign('FOO')(CustomValidator)
 
 describe("validationGate tests", () => {
+  it("should pass through the gates cause there is no validation for the action", () => {
+    const next = jest.fn();
+
+    const type = 'BAR';
+    const payload = { foo: false };
+    const action = { type, payload }
+
+    expect(next).toHaveBeenCalledTimes(0);
+
+    validationGate(validations)()(next)(action);
+    expect(next).toHaveBeenCalledTimes(1);
+  });
+
   it("should pass through the gates", async () => {
     jest.spyOn(console, 'log');
 

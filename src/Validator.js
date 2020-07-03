@@ -18,7 +18,7 @@ export default class Validator {
   }
 
   async validate(payload) {
-    await Joi.object(this.getRules()).validate(payload);
+    await Joi.object(this.getRules()).validateAsync(payload);
   }
 
   accept(type) {

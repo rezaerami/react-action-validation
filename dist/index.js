@@ -140,7 +140,7 @@ var Validator = /*#__PURE__*/function () {
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return Joi.object(this.getRules()).validate(payload);
+                return Joi.object(this.getRules()).validateAsync(payload);
 
               case 2:
               case "end":

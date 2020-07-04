@@ -4,9 +4,19 @@ const prettierOptions = JSON.parse(fs.readFileSync('./.prettierrc', 'utf8'));
 
 module.exports = {
   'parser': 'babel-eslint',
-  'extends': ['prettier', 'plugin:import/errors'],
-  'ignorePatterns': ['*.test.js', '*.spec.js', '*.config.js', '**/dist/*',  '**/node_modules/*'],
-  'plugins': ['prettier', 'import'],
+  'env': {
+    browser: true,
+    node: true,
+    jest: true,
+    es6: true,
+  },
+  'extends': [
+    'prettier',
+    'plugin:import/errors',
+    'plugin:jest/recommended'
+  ],
+  'ignorePatterns': ['*.config.js', '**/dist/*',  '**/node_modules/*'],
+  'plugins': ['prettier', 'import', 'jest'],
   'rules': {
     'prettier/prettier': ['error', prettierOptions],
     'class-methods-use-this': 0,
@@ -29,5 +39,10 @@ module.exports = {
     'newline-per-chained-call': 0,
     'no-confusing-arrow': 0,
     'no-console': 1,
+    'jest/no-disabled-tests': 'warn',
+    'jest/no-focused-tests': 'error',
+    'jest/no-identical-title': 'error',
+    'jest/prefer-to-have-length': 'warn',
+    'jest/valid-expect': 'error'
   }
 };

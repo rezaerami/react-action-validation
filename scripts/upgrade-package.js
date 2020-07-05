@@ -21,8 +21,7 @@ const run = async () => {
 
     console.log('successfully updated package.json');
   } catch (e) {
-    console.error('an error occured', e);
+    console.error('an error occurred', e);
   }
 };
-
 run();

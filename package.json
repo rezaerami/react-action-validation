@@ -8,7 +8,8 @@
     "lint:staged": "lint-staged",
     "test": "jest",
     "coverage": "jest --coverage",
-    "upgrade:version": "node ./scripts/upgrade.js"
+    "upgrade:version": "node ./scripts/upgrade-package.js",
+    "export:package": "node ./scripts/export-package.js"
   },
   "repository": {
     "type": "git",

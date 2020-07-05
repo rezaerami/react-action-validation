@@ -30,7 +30,6 @@ const run = async () => {
       },
       {},
     );
-    console.log(exportedPackageJson);
 
     console.log('writing package.json');
     await fs.writeFileSync(

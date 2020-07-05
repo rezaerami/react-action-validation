@@ -1,0 +1,31 @@
+{
+  "name": "react-action-validation",
+  "version": "0.0.1-beta",
+  "description": "validates the payload of the dispatched action",
+  "main": "./dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rezaerami/react-payload-validation.git"
+  },
+  "keywords": [
+    "react",
+    "hapi",
+    "joi",
+    "redux",
+    "validation",
+    "redux",
+    "validation",
+    "react",
+    "validation"
+  ],
+  "author": "Reza Erami",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rezaerami/react-payload-validation/issues"
+  },
+  "homepage": "https://github.com/rezaerami/react-payload-validation#readme",
+  "dependencies": {
+    "@hapi/joi": "^17.1.1"
+  },
+  "pre-commit": "lint:staged"
+}

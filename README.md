@@ -18,7 +18,7 @@ npm install --save react-action-validation
 
 <a name="makingValidators"></a>
 # 2- Making Validators
-Making validators is easy, you create a class which is extended from to base Validator class, and add the rules property and write your own rules.
+Making validators is easy, you create a class which is extended from the base Validator class, add your custom rules and accept//reject handlers.
 be sure you already installed <a href="https://www.npmjs.com/package/@hapi/joi">@hapi/joi</a>.
 ```bash
 npm install --save @hapi/joi
@@ -46,7 +46,7 @@ class LoginRequestValidation extends Validator {
 export default assign(authTypes.LOGIN)(LoginRequestValidation);
 
 ```
-**Note: the assign function accepts array to assign the validation to multiple types**
+**Note: the assign function accepts an array to assign the validation to multiple types**
 
 ```javascript
 export default assign([FOO_TYPE, BAR_TYPE])(CustomValidation);

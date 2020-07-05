@@ -1,6 +1,6 @@
 {
   "name": "react-action-validation",
-  "version": "0.0.9-alpha",
+  "version": "0.0.10-alpha",
   "description": "validates the payload of the dispatched action",
   "main": "./dist/index.js",
   "scripts": {
@@ -8,8 +8,7 @@
     "lint:staged": "lint-staged",
     "test": "jest",
     "coverage": "jest --coverage",
-    "upgrade:version": "node ./scripts/upgrade-version.js",
-    "export:package": "node ./scripts/export-package.js"
+    "release:ready": "node ./scripts/upgrade-version.js"
   },
   "repository": {
     "type": "git",

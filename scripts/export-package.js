@@ -1,9 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const run = async () => {
+const exportPackage = async packageJsonContent => {
   try {
-    const packageJsonPath = path.join(process.cwd(), 'package.json');
     const exportedPackageJsonPath = path.join(
       process.cwd(),
       'dist',
@@ -15,9 +14,6 @@ const run = async () => {
       'lint-staged',
       'pre-commit',
     ];
-
-    console.log('reading package.json');
-    const packageJsonContent = await fs.readFileSync(packageJsonPath, 'utf-8');
 
     console.log('exporting package.json');
     const parsedPackageJson = JSON.parse(packageJsonContent);
@@ -38,9 +34,14 @@ const run = async () => {
       JSON.stringify(exportedPackageJson),
     );
 
+    await fs.copyFileSync(
+      path.join(process.cwd(), 'README.md'),
+      path.join(process.cwd(), 'dist', 'README.md'),
+    );
+
     console.log('successfully exported package.json');
   } catch (e) {
     console.error('an error occurred', e);
   }
 };
-run();
+module.exports = exportPackage;

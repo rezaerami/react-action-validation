@@ -21,6 +21,7 @@ const run = async () => {
 
     console.log('exporting package.json');
     const parsedPackageJson = JSON.parse(packageJsonContent);
+    parsedPackageJson.main = './index.js';
     const exportedPackageJson = Object.keys(parsedPackageJson).reduce(
       (result, key) => {
         if (!blacklist.includes(key)) {

@@ -3,6 +3,10 @@
 /.idea/*
 
 # dependencies
+/dist
+/dist/*
+
+# dependencies
 /node_modules
 /.jest-cache
 /.jest-coverage

@@ -1,13 +1,14 @@
 {
   "name": "react-action-validation",
-  "version": "0.0.7-alpha",
+  "version": "0.0.10-alpha",
   "description": "validates the payload of the dispatched action",
   "main": "./dist/index.js",
   "scripts": {
     "build": "rollup --config ./rollup.config.js",
     "lint:staged": "lint-staged",
     "test": "jest",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage",
+    "release:ready": "node ./scripts/upgrade-version.js"
   },
   "repository": {
     "type": "git",

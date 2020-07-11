@@ -21,11 +21,11 @@ export default class Validator {
     await Joi.object(this.getRules()).validateAsync(payload);
   }
 
-  accept(type) {
-    console.log(`${type} accepted!`);
+  accept(store, action) {
+    console.log(`${action.type} accepted!`);
   }
 
-  reject(type) {
-    console.error(`${type} rejected!`);
+  reject(store, action) {
+    console.error(`${action.type} rejected!`);
   }
 }

@@ -34,22 +34,36 @@ npm install --save @hapi/joi
 import Joi from '@hapi/joi';
 import { Validator, assign } from 'react-action-validation';
 
-import authTypes  from 'path/to/auth/types'; // path to the files that you wrote your action types
-
 class LoginRequestValidation extends Validator {
   rules = {
     username: Joi.string(),
     password: Joi.string(),
   };
+
+  accept(store, action){
+    console.log(`${action.type} accepted!`);
+    store.dispatch({
+      type: 'LOGIN_ACCEPTED',
+      payload: 'credentials are valid',
+    });
+  }
+
+  reject(store, action){
+    console.log(`${action.type} rejected!`);
+    store.dispatch({
+      type: 'LOGIN_REJECTED',
+      payload: 'credentials are invalid',
+    });
+  }
 }
 
-export default assign(authTypes.LOGIN)(LoginRequestValidation);
+export default assign('LOGIN_REQUEST')(LoginRequestValidation);
 
 ```
 **Note: the assign function accepts an array to assign the validation to multiple types**
 
 ```javascript
-export default assign([FOO_TYPE, BAR_TYPE])(CustomValidation);
+export default assign(['FOO_TYPE', 'BAR_TYPE'])(CustomValidation);
 ```
 
 **Note: I recommend you to separate the validation directories from your component and other layers of your app.

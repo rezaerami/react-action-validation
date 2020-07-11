@@ -1,6 +1,6 @@
 {
   "name": "react-action-validation",
-  "version": "0.0.12-alpha",
+  "version": "0.0.13-alpha",
   "description": "validates the payload of the dispatched action",
   "main": "./dist/index.js",
   "scripts": {
